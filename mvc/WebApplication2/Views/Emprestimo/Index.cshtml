@@ -1,0 +1,29 @@
+﻿@model List<EmprestimoModel>
+
+<h1>Lista de Empréstimos</h1>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID do Usuário</th>
+            <th scope="col">ID do Livro</th>
+            <th scope="col">Data de Empréstimo</th>
+            <th scope="col">Data de Devolução</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emprestimo in Model)
+        {
+            <tr>
+                <td>@emprestimo.IDUSUARIO</td>
+                <td>@emprestimo.IDLIVRO</td>
+                <td>@emprestimo.DTEMPRESTIMO</td>
+                <td>@emprestimo.DTDEVOLUCAO</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div align="right">
+    <a asp-controller="Emprestimo" asp-action="Cadastra" type="button" class="btn btn-success">Cadastrar</a>
+</div>
