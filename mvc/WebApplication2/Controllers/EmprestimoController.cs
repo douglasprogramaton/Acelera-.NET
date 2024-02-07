@@ -1,34 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Data;
 using WebApplication2.Models;
-using System.Linq;
 
 namespace WebApplication2.Controllers
 {
     public class EmprestimoController : Controller
     {
-        private readonly ContextoDB contexto;
-
-        public EmprestimoController(ContextoDB context)
-        {
-            contexto = context;
-        }
+        Data.ContextoDB contexto = new Data.ContextoDB();
 
         public IActionResult Index()
         {
-            var emprestimos = contexto.Emprestimos.ToList();
-            return View(emprestimos);
+            var emprestimo = contexto.Emprestimos.ToList();
+
+            return View(emprestimo);
+
         }
-
         [HttpPost]
-        public IActionResult Index(EmprestimoModel emprestimo)
+        public IActionResult Index(EmprestimoModel empretimossss)
         {
-            if (ModelState.IsValid)
-            {
-                contexto.Emprestimos.Add(emprestimo);
-                contexto.SaveChanges();
-            }
-
+            contexto.Emprestimos.Add(empretimossss);
+            contexto.SaveChanges();
             var emprestimosDB = contexto.Emprestimos.ToList();
             return View(emprestimosDB);
         }
@@ -37,17 +27,12 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Cadastra(EmprestimoModel emprestimo)
+        public IActionResult Cadastra(EmprestimoModel rtd)
         {
-            if (ModelState.IsValid)
-            {
-                contexto.Add(emprestimo);
-                contexto.SaveChanges();
-            }
-
-            return View(emprestimo);
+            contexto.Add(rtd);
+            return View(rtd);
         }
+
     }
 }
