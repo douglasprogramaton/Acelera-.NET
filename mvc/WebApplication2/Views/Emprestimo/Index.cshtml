@@ -17,16 +17,31 @@
         {
             <tr>
                 <th scope="row">@em.Usuario(@em.IDUSUARIO).Nome</th>
-                <th scope="row">@em.IDLIVRO</th>
+                <th scope="row">@GetNomeLivro(em.IDLIVRO)</th>
                 <th scope="row">@em.DTEMPRESTIMO</th>
                 <th scope="row">@em.DTDEVOLUCAO</th>
             </tr>
         }
-
-
     </tbody>
-
 </table>
-
-
 <div align="right"><a asp-controller="Emprestimo" asp-action="Cadastra" type="button" class="btn btn-success">Retirar</a></div>
+@functions {
+    public string GetNomeLivro(int livroId)
+    {
+        WebApplication2.Data.ContextoDB contexto = new WebApplication2.Data.ContextoDB();
+
+        try
+        {
+            var livro = contexto.Livros.FirstOrDefault(l => l.COD == livroId);
+            if (livro != null)
+            {
+                return livro.LIVRO;
+            }
+            return "Livro não encontrado";
+        }
+        catch
+        {
+            return "Erro ao buscar o nome do livro";
+        }
+    }
+}
