@@ -13,13 +13,15 @@ using System.Xml.Linq;
 using System.Text.Json;
 using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
+using Livraria.Application.Interfaces;
+using Livraria.Domain.Models;
 
-namespace Livraria
+namespace Livraria.Application.Service
 {
-    public class ListaDeUsuarios
+    public class ListaDeUsuarios : IListaDeUsuarios
     {
 
-        List<Usuario> ListaUsuarios { get; set; }
+        private List<Usuario> ListaUsuarios { get; set; }
 
         public ListaDeUsuarios()
         {
@@ -63,7 +65,6 @@ namespace Livraria
             }
             catch { throw; }
 
-
         }
 
         private string DTableToCsv(DataTable table, string delimator)
@@ -97,9 +98,9 @@ namespace Livraria
                                            .Skip(1)
                                            .Select(v => Usuario.FromCsv(v))
                                            .ToList();
-            
+
         }
 
-        
+
     }
 }

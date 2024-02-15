@@ -1,6 +1,7 @@
-﻿using Livraria;
+﻿using Livraria.Application.Interfaces;
+using Livraria.Domain.Models;
 
-public class ListaDeLivros
+public class ListaDeLivros: IListaDeLivros
 {
     private List<string> livrosList { get; set; }
 

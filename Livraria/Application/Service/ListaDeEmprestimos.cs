@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Livraria.Domain.Models;
 
-namespace Livraria
+namespace Livraria.Application.Service
 {
     public class ListaDeEmprestimos
     {
@@ -19,7 +20,7 @@ namespace Livraria
 
         public void AdicionaEmprestimo(Usuario usuario, Livros livro)
         {
-            ListaEmprestimos.Add(new Emprestimo(livro,usuario));
+            ListaEmprestimos.Add(new Emprestimo(livro, usuario));
         }
 
         public void SalvaLocalJSON(string arquivo)

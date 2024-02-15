@@ -778,11 +778,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\Livraria\\Livraria.csproj",
+      "projectUniqueName": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\Livraria\\Livraria.csproj",
       "projectName": "Livraria",
-      "projectPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\Livraria\\Livraria.csproj",
+      "projectPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\Livraria\\Livraria.csproj",
       "packagesPath": "C:\\Users\\a880130\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\Livraria\\obj\\",
+      "outputPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\Livraria\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\a880130\\AppData\\Roaming\\NuGet\\NuGet.Config",

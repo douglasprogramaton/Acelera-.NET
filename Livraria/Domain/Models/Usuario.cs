@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Livraria
+namespace Livraria.Domain.Models
 {
     [Table("usuario")]
     public class Usuario
@@ -71,6 +71,6 @@ namespace Livraria
             return usu;
         }
 
-       
+
     }
 }

@@ -268,3 +268,5 @@ C:\Users\a880130\Documents\Acelera\Acelera-.NET\mvc\WebApplication2\bin\Debug\ne
 C:\Users\a880130\Documents\Acelera\Acelera-.NET\mvc\WebApplication2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\a880130\Documents\Acelera\Acelera-.NET\mvc\WebApplication2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\a880130\Documents\Acelera\Acelera-.NET\mvc\WebApplication2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\a880130\Documents\Acelera\Acelera-.NET\mvc\WebApplication2\bin\Debug\net6.0\Livraria.dll
+C:\Users\a880130\Documents\Acelera\Acelera-.NET\mvc\WebApplication2\bin\Debug\net6.0\Livraria.pdb
