@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\ControleLivraria\\ControleLivraria\\ControleLivraria.csproj": {}
+    "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\ControleLivraria\\ControleLivraria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\ControleLivraria\\ControleLivraria\\ControleLivraria.csproj": {
+    "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\ControleLivraria\\ControleLivraria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\ControleLivraria\\ControleLivraria\\ControleLivraria.csproj",
+        "projectUniqueName": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\ControleLivraria\\ControleLivraria.csproj",
         "projectName": "ControleLivraria",
-        "projectPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\ControleLivraria\\ControleLivraria\\ControleLivraria.csproj",
+        "projectPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\ControleLivraria\\ControleLivraria.csproj",
         "packagesPath": "C:\\Users\\a880130\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\ControleLivraria\\ControleLivraria\\obj\\",
+        "outputPath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\ControleLivraria\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\a880130\\AppData\\Roaming\\NuGet\\NuGet.Config",
