@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Livraria.Domain.Models
+namespace Livraria
 {
     [Table("Livro")]
     public class Livros
@@ -41,7 +41,7 @@ namespace Livraria.Domain.Models
         public Livros(string livro, int paginas, int codigo, decimal valor)
         {
             Livro = livro;
-
+               
             Paginas = paginas;
 
             Codigo = codigo;
@@ -54,6 +54,12 @@ namespace Livraria.Domain.Models
         {
             return Livro;
         }
+
+        
+
+
+
+
 
     }
 }

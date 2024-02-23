@@ -22,16 +22,3 @@ C:\Users\a880130\Documents\Acelera\Acelera.Net\curso Flavio\Livraria\obj\Debug\n
 C:\Users\a880130\Documents\Acelera\Acelera.Net\curso Flavio\Livraria\obj\Debug\net6.0\refint\Livraria.dll
 C:\Users\a880130\Documents\Acelera\Acelera.Net\curso Flavio\Livraria\obj\Debug\net6.0\Livraria.pdb
 C:\Users\a880130\Documents\Acelera\Acelera.Net\curso Flavio\Livraria\obj\Debug\net6.0\ref\Livraria.dll
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\bin\Debug\net6.0\Livraria.deps.json
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\bin\Debug\net6.0\Livraria.dll
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\bin\Debug\net6.0\Livraria.pdb
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.csproj.AssemblyReference.cache
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.AssemblyInfoInputs.cache
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.AssemblyInfo.cs
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.csproj.CoreCompileInputs.cache
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.sourcelink.json
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.dll
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\refint\Livraria.dll
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\Livraria.pdb
-C:\Users\a880130\Documents\Acelera\Acelera-.NET\Livraria\obj\Debug\net6.0\ref\Livraria.dll

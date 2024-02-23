@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Livraria.Domain.Models
+namespace Livraria
 {
     public class Emprestimo
     {
@@ -41,6 +41,6 @@ namespace Livraria.Domain.Models
             Devolucao = DateTime.Now.AddDays(3);
         }
 
-
+        
     }
 }

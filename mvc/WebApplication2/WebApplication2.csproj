@@ -11,10 +11,4 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Livraria">
-      <HintPath>..\..\Livraria\bin\Debug\net6.0\Livraria.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
