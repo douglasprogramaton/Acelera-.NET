@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "soMQCWsl4DLonGStTuZDrMXfZz65IuRhnJfBg/VVYf9r35J4g9M6/xdus6R69o6J34T+0/wzWMf3vfjeFCyKGQ==",
+  "dgSpecHash": "uTNwAz6kCnskgpKCwLQNHABXdJOApTfLrNL2+NB9LfDiyEKpJL/G0Jb9MnkpzFMAzAWsujjMi9N0+9IsxNY0MQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera.Net\\curso Flavio\\ControleLivraria\\ControleLivraria\\ControleLivraria.csproj",
+  "projectFilePath": "C:\\Users\\a880130\\Documents\\Acelera\\Acelera-.NET\\ControleLivraria\\ControleLivraria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a880130\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",
     "C:\\Users\\a880130\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.7\\microsoft.entityframeworkcore.abstractions.6.0.7.nupkg.sha512",
