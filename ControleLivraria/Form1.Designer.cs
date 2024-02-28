@@ -32,6 +32,8 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             groupBox2 = new GroupBox();
+            btnPesquisar = new Button();
+            txtPesquisar = new TextBox();
             dgvUsuarios = new DataGridView();
             Id = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
@@ -110,7 +112,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(663, 429);
             tabControl1.TabIndex = 1;
-            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -126,6 +127,8 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnPesquisar);
+            groupBox2.Controls.Add(txtPesquisar);
             groupBox2.Controls.Add(dgvUsuarios);
             groupBox2.Location = new Point(6, 97);
             groupBox2.Name = "groupBox2";
@@ -133,20 +136,38 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
+            // btnPesquisar
+            // 
+            btnPesquisar.Location = new Point(141, 39);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.TabIndex = 2;
+            btnPesquisar.Text = "Pesquisar";
+            btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += button1_Click;
+            // 
+            // txtPesquisar
+            // 
+            txtPesquisar.Location = new Point(26, 40);
+            txtPesquisar.Name = "txtPesquisar";
+            txtPesquisar.Size = new Size(100, 23);
+            txtPesquisar.TabIndex = 1;
+            // 
             // dgvUsuarios
             // 
             dgvUsuarios.AllowUserToAddRows = false;
             dgvUsuarios.AllowUserToDeleteRows = false;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Login, Senha });
-            dgvUsuarios.Location = new Point(12, 17);
+            dgvUsuarios.Location = new Point(12, 72);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.RowTemplate.Height = 25;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(628, 272);
+            dgvUsuarios.Size = new Size(628, 217);
             dgvUsuarios.TabIndex = 0;
+           
             // 
             // Id
             // 
@@ -686,6 +707,7 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -760,5 +782,7 @@
         private DataGridViewTextBoxColumn Usuario;
         private DataGridViewTextBoxColumn Livro;
         private Button button7;
+        private Button btnPesquisar;
+        private TextBox txtPesquisar;
     }
 }

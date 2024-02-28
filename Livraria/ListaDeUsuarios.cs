@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Dynamic;
-using System.Formats.Asn1;
+using System.IO; // Adicionei a importação do namespace System.IO para utilizar File
 using System.Linq;
-using System.Net.Http.Json;
+using Newtonsoft.Json; // Removi a importação desnecessária do Newtonsoft.Json
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-using System.Text.Json;
-using Newtonsoft.Json;
+using Livraria;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Livraria
 {
     public class ListaDeUsuarios
     {
-
         List<Usuario> ListaUsuarios { get; set; }
 
-        public ListaDeUsuarios()
+        public ListaDeUsuarios(List<Usuario> usuarios)
         {
-            ListaUsuarios = new List<Usuario>();
+            ListaUsuarios = usuarios; // Atribui a lista de usuários passada para ListaUsuarios
         }
 
         public void AdicionaUsuarios(Usuario usuario)
@@ -40,7 +35,6 @@ namespace Livraria
         {
             string json = JsonSerializer.Serialize(ListaUsuarios);
             File.WriteAllText(arquivo, json);
-
         }
 
         public void SalvaLocalCSV(string arquivo)
@@ -51,19 +45,17 @@ namespace Livraria
             {
                 XmlNode xml = JsonConvert.DeserializeXmlNode("{records:{record:" + json + "}}");
 
-                XmlDocument xmldoc = new XmlDocument(); xmldoc.LoadXml(xml.InnerXml);
+                XmlDocument xmldoc = new XmlDocument();
+                xmldoc.LoadXml(xml.InnerXml);
 
-                DataSet dataSet = new DataSet(); dataSet.ReadXml(new XmlNodeReader(xmldoc));
+                DataSet dataSet = new DataSet();
+                dataSet.ReadXml(new XmlNodeReader(xmldoc));
 
                 string csv = DTableToCsv(dataSet.Tables[0], ",");
 
                 File.WriteAllText(arquivo, csv);
-                //return csv;
-
             }
             catch { throw; }
-
-
         }
 
         private string DTableToCsv(DataTable table, string delimator)
@@ -92,14 +84,10 @@ namespace Livraria
 
         public void CarregaLocal(string arquivo)
         {
-
             ListaUsuarios = File.ReadAllLines(arquivo)
                                            .Skip(1)
                                            .Select(v => Usuario.FromCsv(v))
                                            .ToList();
-            
         }
-
-        
     }
 }

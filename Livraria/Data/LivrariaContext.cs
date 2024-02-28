@@ -12,7 +12,7 @@ namespace Livraria.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            var conexao = "server=zapcidade.app;port=3306;database=livraria;uid=livraria;password=aceleranet";
+            var conexao = "server=193.203.175.59;port=3306;database=u123648597_livraria;user=u123648597_livraria;password=Livraria#123";
             optionsBuilder.UseMySql(conexao, ServerVersion.AutoDetect(conexao));
             
         }

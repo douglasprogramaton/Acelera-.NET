@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Reference Include="Livraria">
-      <HintPath>..\..\Livraria\bin\Debug\net6.0\Livraria.dll</HintPath>
+      <HintPath>..\Livraria\bin\Debug\net6.0\Livraria.dll</HintPath>
     </Reference>
   </ItemGroup>
 

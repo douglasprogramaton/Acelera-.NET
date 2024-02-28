@@ -1,13 +1,15 @@
-using Livraria;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
+using ControlLivraria.DAO;
+using Livraria;
+using Newtonsoft.Json;
 
 namespace ControleLivraria
 {
-    /// <summary>
-    /// Classe principal do formulário de controle da livraria.
-    /// </summary>
     public partial class ControleDeBiblioteca : Form
     {
         ListaDeUsuarios ListaUsuarios;
@@ -15,29 +17,32 @@ namespace ControleLivraria
         ListaDeEmprestimos emprestimos;
         Livraria.Data.LivrariaContext contextoDB;
 
-        /// <summary>
-        /// Construtor da classe Form1.
-        /// </summary>
         public ControleDeBiblioteca()
         {
             InitializeComponent();
-            ListaUsuarios = new ListaDeUsuarios(); // Inicializa a lista de usuários
+            contextoDB = new Livraria.Data.LivrariaContext();
             ListaLivros = new ListaDeLivros(); // Inicializa a lista de livros
             emprestimos = new ListaDeEmprestimos(); // Inicializa a lista de empréstimos
-            contextoDB = new Livraria.Data.LivrariaContext(); // Inicializa o contexto do banco de dados
+
+            // Popula a lista de usuários após inicializar o contextoDB
+            // Certifique-se de que o contextoDB.Usuarios retorne uma lista válida de usuários
+            if (contextoDB != null && contextoDB.Usuarios != null)
+            {
+                // Aqui vamos converter os usuários do tipo dynamic para Usuario
+                var usuarios = contextoDB.Usuarios.Select(u => new Usuario(u.Nome, u.Login, u.Senha)).ToList();
+                ListaUsuarios = new ListaDeUsuarios(usuarios);
+            }
+            else
+            {
+                ListaUsuarios = new ListaDeUsuarios(new List<Usuario>());
+            }
         }
 
-        /// <summary>
-        /// Evento de clique no botão de fechar o formulário.
-        /// </summary>
         private void button7_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        /// <summary>
-        /// Evento de clique no botão de adicionar usuário.
-        /// </summary>
         private void btnAdicionarUsuario_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txbNome.Text) || string.IsNullOrEmpty(txbLogin.Text) || string.IsNullOrEmpty(txbSenha.Text))
@@ -46,17 +51,18 @@ namespace ControleLivraria
             }
             else
             {
-                Usuario novo = new Usuario(txbNome.Text, txbLogin.Text, txbSenha.Text);
-                ListaUsuarios.AdicionaUsuarios(novo);
-                contextoDB.Usuarios.Add(novo);
-                contextoDB.SaveChanges();
+                using (var context = new LivrariaContext())
+                {
+                    Usuario novoUsuario = new Usuario(txbNome.Text, txbLogin.Text, txbSenha.Text);
+
+                    context.Usuarios.Add(novoUsuario);
+                    context.SaveChanges();
+                }
+
                 atualizaDGUsuarios();
             }
         }
 
-        /// <summary>
-        /// Evento de clique no botão de adicionar livro.
-        /// </summary>
         private void btn_adicionarLivro_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtBoxLivro.Text) || string.IsNullOrEmpty(txtBoxCod.Text) || string.IsNullOrEmpty(txtBoxValor.Text))
@@ -74,9 +80,6 @@ namespace ControleLivraria
             }
         }
 
-        /// <summary>
-        /// Método para atualizar o DataGridView de usuários.
-        /// </summary>
         private void atualizaDGUsuarios()
         {
             BindingSource bs = new BindingSource();
@@ -84,9 +87,6 @@ namespace ControleLivraria
             dgvUsuarios.DataSource = bs;
         }
 
-        /// <summary>
-        /// Método para atualizar o DataGridView de livros.
-        /// </summary>
         private void atualizaDGLivros()
         {
             BindingSource bs = new BindingSource();
@@ -94,9 +94,6 @@ namespace ControleLivraria
             dgvLivros.DataSource = bs;
         }
 
-        /// <summary>
-        /// Método para atualizar o DataGridView de empréstimos.
-        /// </summary>
         private void atualizaDGEmprestimos()
         {
             BindingSource bsLivros = new BindingSource();
@@ -108,18 +105,23 @@ namespace ControleLivraria
             dgvEmprestimos.DataSource = bsUsuarios;
         }
 
-        /// <summary>
-        /// Evento de carga do formulário.
-        /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            ListaUsuarios = new ListaDeUsuarios();
-            ListaLivros = new ListaDeLivros();
+            // Verifica se contextoDB e contextoDB.Usuarios não são nulos
+            if (contextoDB != null && contextoDB.Usuarios != null)
+            {
+                // Aqui vamos converter os usuários do tipo dynamic para Usuario
+                var usuarios = contextoDB.Usuarios.Select(u => new Usuario(u.Nome, u.Login, u.Senha)).ToList();
+                ListaUsuarios = new ListaDeUsuarios(usuarios);
+            }
+            else
+            {
+                // Se contextoDB ou contextoDB.Usuarios forem nulos, inicialize ListaUsuarios com uma lista vazia
+                ListaUsuarios = new ListaDeUsuarios(new List<Usuario>());
+            }
         }
 
-        /// <summary>
-        /// Evento de clique no botão para salvar usuários em CSV.
-        /// </summary>
+
         private void btnSalvarUsuarioCSVClick(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "Arquivo .CSV (.csv) | *.csv";
@@ -130,12 +132,8 @@ namespace ControleLivraria
 
                 ListaUsuarios.SalvaLocalCSV(nomeArquivo);
             }
-
         }
 
-        /// <summary>
-        /// Evento de clique no botão para exportar livros em CSV.
-        /// </summary>
         private void btnExpCSV_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "Arquivo .CSV (.csv) | *.csv";
@@ -143,14 +141,10 @@ namespace ControleLivraria
             if (DialogResult.OK == saveFileDialog1.ShowDialog())
             {
                 nomeArquivo = saveFileDialog1.FileName;
-
-
+                // Implemente a lógica para exportar os livros em formato CSV
             }
         }
 
-        /// <summary>
-        /// Evento de clique no botão para salvar usuários em JSON.
-        /// </summary>
         private void btnSalvarUsuarioJson_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "Arquivo .JSON (.json) | *.json";
@@ -163,9 +157,6 @@ namespace ControleLivraria
             }
         }
 
-        /// <summary>
-        /// Evento de clique no botão para carregar usuários de um arquivo CSV.
-        /// </summary>
         private void btnCarregarUsuario_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "Arquivo .CSV (.csv) | *.csv";
@@ -177,9 +168,6 @@ namespace ControleLivraria
             atualizaDGUsuarios();
         }
 
-        /// <summary>
-        /// Evento de clique no botão para associar usuário a livro.
-        /// </summary>
         private void btnAssociarLivro_Click(object sender, EventArgs e)
         {
             if (comboBoxUsuario.SelectedItem == null || comboBoxLivros.SelectedItem == null)
@@ -210,9 +198,15 @@ namespace ControleLivraria
             MessageBox.Show($"Usuário '{usuarioSelecionado.Nome}' associado ao livro '{livroSelecionado}'.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            BindingSource bs = new BindingSource();
 
+            var textoFiltro = txtPesquisar.Text;
+
+            bs.DataSource = ListaUsuarios.GetUsuarios().Where((usuario) => usuario.Nome.Contains(textoFiltro)).ToList();
+
+            dgvUsuarios.DataSource = bs;
         }
     }
 }
